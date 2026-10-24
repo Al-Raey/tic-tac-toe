@@ -1,0 +1,44 @@
+{
+  "name": "tic-tac-toe",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b --pretty",
+    "check:site": "node scripts/check-site.mjs",
+    "verify": "npm run test:lockfile && npm run check:lockfile && npm run check:site && npm run test:site-language && npm run test:release-metadata && npm test && npm run typecheck && npm run build",
+    "test:site-language": "node scripts/test-site-language.mjs",
+    "audit:deps": "npm audit --audit-level=high",
+    "check:lockfile": "node scripts/check-lockfile.mjs",
+    "test:lockfile": "node scripts/test-lockfile.mjs",
+    "test:e2e": "playwright test",
+    "verify:release": "npm run verify && npm run test:e2e",
+    "test:release-metadata": "node scripts/test-release-metadata.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "22.10.2",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "jsdom": "^25.0.1",
+    "typescript": "5.7.2",
+    "vite": "6.4.5",
+    "vitest": "^2.1.8",
+    "@playwright/test": "1.64.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
